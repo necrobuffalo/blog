@@ -7,7 +7,19 @@
     <language>en-us</language>
     
     
-    <updated>Tue, 11 Apr 2017 17:10:41 PDT</updated>
+    <updated>Tue, 11 Apr 2017 20:40:42 PDT</updated>
+    
+    <item>
+      <title>About</title>
+      <link>http://blog.taron.rip/about/</link>
+      <pubDate>Tue, 11 Apr 2017 20:40:42 PDT</pubDate>
+      
+      <guid>http://blog.taron.rip/about/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m a computer science student at Portland State University, fond of ops and design. This is my attempt at collecting and recording the things I learn.&lt;/p&gt;
+
+&lt;p&gt;In my spare time I play video games, listen to the saddest music I can find, and look at trains.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Switching to Hugo</title>

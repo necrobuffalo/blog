@@ -3,3 +3,15 @@ languageCode = "en-us"
 title = "Tales from the Void"
 
 publishDir = "docs"
+
+[menu]
+  [[menu.top]]
+  name = "Twitter"
+  pre = ""
+  weight = -100
+  url = "https://twitter.com/necrobeefalo"
+  [[menu.top]]
+  name = "RSS"
+  pre = ""
+  weight = -90
+  url = "index.xml"

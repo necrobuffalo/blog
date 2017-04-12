@@ -1,0 +1,5 @@
+baseURL = "http://blog.taron.rip/"
+languageCode = "en-us"
+title = "Tales from the Void"
+
+publishDir = "docs"

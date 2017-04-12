@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:title" content=" Switching to Hugo &middot;  Tales from the Void" />
+  <meta property="og:site_name" content="Tales from the Void" />
+  <meta property="og:url" content="http://blog.taron.rip/post/switching-to-hugo/" />
+  <meta name="theme" content="darksimplicity">
+  <meta name="generator" content="Hugo 0.20" />
+  
+  
+  <base href="http://blog.taron.rip/">
+  <title>Switching to Hugo</title>
+  <link rel="stylesheet" href="/css/style.min.css">
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="navbar">
+        <ul class="navbar-list">
+          
+        </ul>
+    </div>
+    <div class="header">
+      <a href="http://blog.taron.rip/" class="title">Tales from the Void</a>
+      
+    </div>
+
+  <article itemscope itemtype="http://schema.org/Blog">
+    <div class="post-title">
+      <a class="post-title-link" href="http://blog.taron.rip/post/switching-to-hugo/" itemprop="name">Switching to Hugo</a>
+    </div>
+      <div class="content-full">
+
+<p>I&rsquo;ve been meaning to blog more for quite a while but haven&rsquo;t gotten around to it. Sometimes the ideas come and I just get caught up in fighting with Jekyll or debating whether it&rsquo;s worth the money to set up Ghost again. But I have several assignments due in the next few days and not a lot of time to do them in, so obviously now is the time to procrastinate by trying a new method. Hugo it is!<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup></p>
+
+<p>It took me a bit to find the Getting Started guide. I&rsquo;d expected it to be under Tutorials on the website, but it was in a separate section, and I didn&rsquo;t notice until after I was led to it by another tutorial. Not a huge deal for me, I still found what I was looking for fairly quickly.</p>
+
+<h1 id="installation">Installation</h1>
+
+<p>Pulled down the latest binary release from GitHub, expanded it, dropped it in my path. Definitely preferable to installing a gem, at least for me personally. I&rsquo;m not much of a Rubyist, I don&rsquo;t know what gem does and where it puts files, and I shy away from installing things that might have side effects I don&rsquo;t understand unless it&rsquo;s in OS package form.</p>
+
+<h1 id="setup">Setup</h1>
+
+<p>Setup was just as easy as installation. Following instructions, I ran <code>hugo new site blog</code> and got a nice clean slate. Hugo doesn&rsquo;t include themes, so at this point I wandered off looking for one and grabbed the darkest one I could find on the theme gallery.<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup> The way themes are handled makes this possible - clone the repository in your <code>themes</code> directory and then pass the directory name as a flag. Easier than needing to clone a new theme elsewhere and move old posts into it or perform surgery on your current theme. Once I had my theme ready I started up the server with <code>hugo serve --theme=darksimplicity --buildDrafts</code> The server reloads automatically when content changes on disk, including the configuration file.</p>
+
+<p>Starting a new post is also super streamlined. <code>hugo new post/switching-to-hugo.md</code> gave me a new file with all the front matter already filled out. I did need to change the casing of the title, but that&rsquo;s fine - maybe I&rsquo;ll even switch to lowercased titles anyway.</p>
+
+<p>The configuration file required minor tinkering at worst. I changed the title and the base URL and that was about it, apart from one change I&rsquo;ll talk about in the Deployment section.</p>
+
+<h1 id="deployment">Deployment</h1>
+
+<p>Hugo provides a tutorial on how to deploy to GitHub Pages. There&rsquo;s two ways you can do it - via a <code>/docs</code> folder on your master branch or via the separate <code>gh-pages</code> branch. Putting generated files in master feels slighly unhygienic, but for a small personal project I&rsquo;d rather that than have to deal with deploy scripts, so I went with the first option. This meant one last change to my <code>config.toml</code>, adding the line <code>publishDir = &quot;docs&quot;</code>.
+I dropped the standard GitHub Pages CNAME file into <code>/static</code>, generated everything with <code>hugo --theme=darksimplicity</code>, committed, and pushed my changes. I then changed the source on the project settings page to use <code>/docs</code> for the project page. I got a little caught up here because my CNAME was missing a newline at the end and the site was appearing in a broken state at <code>blog.taron.rip/blog/</code><sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup> but that&rsquo;s not Hugo&rsquo;s fault.</p>
+
+<h1 id="verdict">Verdict</h1>
+
+<p>I had two major pain points with Jekyll, theme management and not being able to autogenerate front matter. Hugo addresses both of these. There&rsquo;s slightly more overhead since Hugo isn&rsquo;t natively supported by GitHub Pages, but for me this is fine - the overhead occurs after writing and not before. At some point maybe I&rsquo;ll also investigate hosting with Netlify, but for now I&rsquo;m going to put that aside. Between the simplicity and the fact that using it is free, I think I&rsquo;ll be sticking with Hugo for a while.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">In my defense, I&rsquo;m taking a writing course this term and badly need the practice.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Gotta keep the goth stereotype going, y&rsquo;know.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">I&rsquo;m not actually sure if this was resolved by adding the newline or just time.
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+</div>
+  </article>
+    <div class="copyright"><p>&copy; 2017. Tales from the Void. All rights reserved. 
+      </p>
+    </div>    
+
+</div>
+</body>
+</html>
+

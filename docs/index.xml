@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Tales from the Void on Tales from the Void </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://blog.taron.rip/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Tue, 11 Apr 2017 17:10:41 PDT</updated>
+    
+    <item>
+      <title>Switching to Hugo</title>
+      <link>http://blog.taron.rip/post/switching-to-hugo/</link>
+      <pubDate>Tue, 11 Apr 2017 17:10:41 PDT</pubDate>
+      
+      <guid>http://blog.taron.rip/post/switching-to-hugo/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;ve been meaning to blog more for quite a while but haven&amp;rsquo;t gotten around to it. Sometimes the ideas come and I just get caught up in fighting with Jekyll or debating whether it&amp;rsquo;s worth the money to set up Ghost again. But I have several assignments due in the next few days and not a lot of time to do them in, so obviously now is the time to procrastinate by trying a new method. Hugo it is!&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;It took me a bit to find the Getting Started guide. I&amp;rsquo;d expected it to be under Tutorials on the website, but it was in a separate section, and I didn&amp;rsquo;t notice until after I was led to it by another tutorial. Not a huge deal for me, I still found what I was looking for fairly quickly.&lt;/p&gt;
+
+&lt;h1 id=&#34;installation&#34;&gt;Installation&lt;/h1&gt;
+
+&lt;p&gt;Pulled down the latest binary release from GitHub, expanded it, dropped it in my path. Definitely preferable to installing a gem, at least for me personally. I&amp;rsquo;m not much of a Rubyist, I don&amp;rsquo;t know what gem does and where it puts files, and I shy away from installing things that might have side effects I don&amp;rsquo;t understand unless it&amp;rsquo;s in OS package form.&lt;/p&gt;
+
+&lt;h1 id=&#34;setup&#34;&gt;Setup&lt;/h1&gt;
+
+&lt;p&gt;Setup was just as easy as installation. Following instructions, I ran &lt;code&gt;hugo new site blog&lt;/code&gt; and got a nice clean slate. Hugo doesn&amp;rsquo;t include themes, so at this point I wandered off looking for one and grabbed the darkest one I could find on the theme gallery.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; The way themes are handled makes this possible - clone the repository in your &lt;code&gt;themes&lt;/code&gt; directory and then pass the directory name as a flag. Easier than needing to clone a new theme elsewhere and move old posts into it or perform surgery on your current theme. Once I had my theme ready I started up the server with &lt;code&gt;hugo serve --theme=darksimplicity --buildDrafts&lt;/code&gt; The server reloads automatically when content changes on disk, including the configuration file.&lt;/p&gt;
+
+&lt;p&gt;Starting a new post is also super streamlined. &lt;code&gt;hugo new post/switching-to-hugo.md&lt;/code&gt; gave me a new file with all the front matter already filled out. I did need to change the casing of the title, but that&amp;rsquo;s fine - maybe I&amp;rsquo;ll even switch to lowercased titles anyway.&lt;/p&gt;
+
+&lt;p&gt;The configuration file required minor tinkering at worst. I changed the title and the base URL and that was about it, apart from one change I&amp;rsquo;ll talk about in the Deployment section.&lt;/p&gt;
+
+&lt;h1 id=&#34;deployment&#34;&gt;Deployment&lt;/h1&gt;
+
+&lt;p&gt;Hugo provides a tutorial on how to deploy to GitHub Pages. There&amp;rsquo;s two ways you can do it - via a &lt;code&gt;/docs&lt;/code&gt; folder on your master branch or via the separate &lt;code&gt;gh-pages&lt;/code&gt; branch. Putting generated files in master feels slighly unhygienic, but for a small personal project I&amp;rsquo;d rather that than have to deal with deploy scripts, so I went with the first option. This meant one last change to my &lt;code&gt;config.toml&lt;/code&gt;, adding the line &lt;code&gt;publishDir = &amp;quot;docs&amp;quot;&lt;/code&gt;.
+I dropped the standard GitHub Pages CNAME file into &lt;code&gt;/static&lt;/code&gt;, generated everything with &lt;code&gt;hugo --theme=darksimplicity&lt;/code&gt;, committed, and pushed my changes. I then changed the source on the project settings page to use &lt;code&gt;/docs&lt;/code&gt; for the project page. I got a little caught up here because my CNAME was missing a newline at the end and the site was appearing in a broken state at &lt;code&gt;blog.taron.rip/blog/&lt;/code&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; but that&amp;rsquo;s not Hugo&amp;rsquo;s fault.&lt;/p&gt;
+
+&lt;h1 id=&#34;verdict&#34;&gt;Verdict&lt;/h1&gt;
+
+&lt;p&gt;I had two major pain points with Jekyll, theme management and not being able to autogenerate front matter. Hugo addresses both of these. There&amp;rsquo;s slightly more overhead since Hugo isn&amp;rsquo;t natively supported by GitHub Pages, but for me this is fine - the overhead occurs after writing and not before. At some point maybe I&amp;rsquo;ll also investigate hosting with Netlify, but for now I&amp;rsquo;m going to put that aside. Between the simplicity and the fact that using it is free, I think I&amp;rsquo;ll be sticking with Hugo for a while.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;In my defense, I&amp;rsquo;m taking a writing course this term and badly need the practice.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;Gotta keep the goth stereotype going, y&amp;rsquo;know.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;I&amp;rsquo;m not actually sure if this was resolved by adding the newline or just time.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

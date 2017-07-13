@@ -9,7 +9,7 @@ publishDir = "docs"
   name = "Twitter"
   pre = ""
   weight = -100
-  url = "https://twitter.com/necrobeefalo"
+  url = "https://twitter.com/necrobuffalo"
   [[menu.top]]
   name = "RSS"
   pre = ""
